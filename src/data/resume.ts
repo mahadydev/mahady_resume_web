@@ -11,6 +11,7 @@ export const resumeData: ResumeData = {
     location: "Dhaka, Bangladesh",
     linkedin: "https://linkedin.com/in/mahadydev",
     github: "https://github.com/mahadydev",
+    cv: "https://drive.google.com/file/d/18-9E-yvVsCpgVIkBqV0yRQn-MaQM0ggy/view?usp=sharing",
   },
   experience: [
     {

@@ -30,6 +30,19 @@ function TerminalOutputLine({ line }: { line: TerminalLine }) {
     );
   }
 
+  if (line.href) {
+    return (
+      <a
+        href={line.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${colorClass} whitespace-pre-wrap break-words hover:underline decoration-1 underline-offset-4 cursor-pointer`}
+      >
+        {line.content}
+      </a>
+    );
+  }
+
   return (
     <div className={`${colorClass} whitespace-pre-wrap break-words`}>
       {line.content}
@@ -89,6 +102,8 @@ export default function InteractiveTerminal({
         "clear",
         "sudo",
         "matrix",
+        "cv",
+        "resume",
       ];
       const match = commands.find((c) =>
         c.startsWith(currentInput.toLowerCase()),

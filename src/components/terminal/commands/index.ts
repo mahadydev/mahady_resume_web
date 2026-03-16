@@ -6,8 +6,9 @@ function line(
   content: string,
   color?: TerminalLine["color"],
   type: TerminalLine["type"] = "output",
+  href?: string,
 ): TerminalLine {
-  return { id: generateId(), type, content, color };
+  return { id: generateId(), type, content, color, href };
 }
 
 const helpCommand: TerminalCommand = {
@@ -24,6 +25,7 @@ const helpCommand: TerminalCommand = {
     line("  awards        Awards & recognition", "green"),
     line("  education     Education background", "green"),
     line("  contact       How to reach me", "green"),
+    line("  cv            View / Download Resume (PDF)", "green"),
     line("  whoami        Who are you?", "green"),
     line("  clear         Clear terminal", "green"),
     line("  flutter       Run flutter doctor", "green"),
@@ -192,8 +194,9 @@ const contactCommand: TerminalCommand = {
     line(`  ✉  Email:    ${resumeData.contact.email}`, "green"),
     line(`  📱 Phone:    ${resumeData.contact.phone}`, "green"),
     line(`  📍 Location: ${resumeData.contact.location}`),
-    line(`  🔗 LinkedIn: ${resumeData.contact.linkedin}`, "cyan"),
-    line(`  🐙 GitHub:   ${resumeData.contact.github}`, "cyan"),
+    line(`  🔗 LinkedIn: ${resumeData.contact.linkedin}`, "cyan", "output", resumeData.contact.linkedin),
+    line(`  🐙 GitHub:   ${resumeData.contact.github}`, "cyan", "output", resumeData.contact.github),
+    line(`  📄 Resume:   View PDF`, "cyan", "output", resumeData.contact.cv),
     line(""),
     line("  Feel free to reach out!", "amber"),
   ],
@@ -211,6 +214,20 @@ const whoamiCommand: TerminalCommand = {
     ),
     line("Type 'help' to explore. Type 'flutter' for a surprise.", "muted"),
   ],
+};
+
+const cvCommand: TerminalCommand = {
+  name: "cv",
+  description: "View / Download Resume (PDF)",
+  execute: () => [
+    line("Opening resume...", "green"),
+    line("🔗 Click here to view CV (PDF)", "cyan", "output", resumeData.contact.cv),
+  ],
+};
+
+const resumeCommand: TerminalCommand = {
+  ...cvCommand,
+  name: "resume",
 };
 
 const sudoCommand: TerminalCommand = {
@@ -267,6 +284,8 @@ export const commandRegistry: Record<string, TerminalCommand> = {
   awards: awardsCommand,
   education: educationCommand,
   contact: contactCommand,
+  cv: cvCommand,
+  resume: resumeCommand,
   whoami: whoamiCommand,
   sudo: sudoCommand,
   matrix: matrixCommand,

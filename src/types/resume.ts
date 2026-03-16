@@ -36,6 +36,7 @@ export interface ContactInfo {
   location: string;
   linkedin: string;
   github: string;
+  cv: string;
 }
 
 export interface ResumeData {

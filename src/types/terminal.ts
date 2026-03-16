@@ -4,6 +4,7 @@ export interface TerminalLine {
   content: string;
   color?: "green" | "cyan" | "amber" | "red" | "purple" | "muted" | "white";
   delay?: number;
+  href?: string;
 }
 
 export interface TerminalCommand {

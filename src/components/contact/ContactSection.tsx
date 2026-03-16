@@ -66,6 +66,7 @@ export default function ContactSection() {
     { label: "Location", value: contact.location },
     { label: "LinkedIn", value: contact.linkedin, href: contact.linkedin },
     { label: "GitHub", value: contact.github, href: contact.github },
+    { label: "Resume / CV", value: "View PDF", href: contact.cv },
   ];
 
   return (

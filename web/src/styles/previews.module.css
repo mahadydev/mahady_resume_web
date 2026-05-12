@@ -1,0 +1,166 @@
+/* ─── Preview 1: floating phone ───────────────────────────────────────── */
+
+.pv1 {
+  background:
+    radial-gradient(400px 250px at 50% 50%, rgba(0, 229, 160, 0.18), transparent),
+    radial-gradient(300px 200px at 80% 30%, rgba(157, 140, 255, 0.1), transparent),
+    #08090d;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.ph {
+  width: 110px;
+  height: 200px;
+  border-radius: 22px;
+  background: linear-gradient(150deg, #1a1d24, #0a0b10);
+  padding: 5px;
+  transform: rotate(-6deg);
+  box-shadow: 0 30px 50px -10px rgba(0, 229, 160, 0.3);
+  transition: transform 0.4s ease;
+}
+
+:global(a[data-tone]):hover .ph {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.scr {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background: #08090d;
+  padding: 14px 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  align-content: start;
+}
+
+.scr i {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: block;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.5;
+}
+
+/* ─── Preview 2: terminal ─────────────────────────────────────────────── */
+
+.pv2 {
+  background: #050608;
+  padding: 14px;
+  font-family: var(--font-jb-mono), ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--green);
+  height: 100%;
+}
+
+.pv2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 156, 0.04) 0 1px,
+    transparent 1px 3px
+  );
+  pointer-events: none;
+}
+
+.lights {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.lights i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+}
+
+.pmt {
+  color: var(--green);
+}
+
+.key {
+  color: var(--amber);
+}
+
+.str {
+  color: #ff9b6b;
+}
+
+.dim {
+  color: #6c7079;
+}
+
+.caret {
+  display: inline-block;
+  width: 6px;
+  height: 10px;
+  background: var(--green);
+  vertical-align: middle;
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ─── Preview 3: editorial ────────────────────────────────────────────── */
+
+.pv3 {
+  background:
+    radial-gradient(400px 200px at 30% 50%, rgba(255, 184, 74, 0.1), transparent),
+    #0d0c0a;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.eb {
+  font-family: var(--font-jb-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pv3 h3 {
+  font-family: var(--font-newsreader), serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #f4f1ea;
+}
+
+.pv3 h3 i {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-jb-mono), ui-monospace, monospace;
+  font-size: 10px;
+  color: #6c7079;
+  letter-spacing: 0.05em;
+}
+
+.row b {
+  display: block;
+  font-family: var(--font-newsreader), serif;
+  font-size: 22px;
+  color: #f4f1ea;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}

@@ -1,0 +1,140 @@
+:root {
+  --bg: #06070a;
+  --panel: #0d0f14;
+  --ink: #ecedf0;
+  --dim: #8a8c95;
+  --faint: #4a4c55;
+  --line: #1c1e25;
+  --mint: #00e5a0;
+  --green: #00ff9c;
+  --amber: #ffb84a;
+  --fx-accent: #00e5a0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body {
+  background:
+    radial-gradient(900px 600px at 20% 10%, rgba(0, 229, 160, 0.07), transparent 60%),
+    radial-gradient(800px 600px at 85% 100%, rgba(255, 184, 74, 0.05), transparent 60%),
+    var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  background: var(--mint);
+  color: #001a13;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  transform: translateY(-200%);
+  transition: transform 0.2s;
+  z-index: 100001;
+  text-decoration: none;
+}
+
+.skip:focus {
+  transform: translateY(0);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-family: var(--font-newsreader), Georgia, serif !important;
+    font-size: 11pt !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  #fx-cursor-dot,
+  #fx-cursor-ring,
+  #fx-palette,
+  .skip {
+    display: none !important;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none;
+  }
+}

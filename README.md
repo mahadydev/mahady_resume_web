@@ -1,5 +1,7 @@
 # MD Mahady Hasan — Resume · Three Directions
 
+Live at **[mahadydev.vercel.app](https://mahadydev.vercel.app)**.
+
 Personal resume site. Built with Next.js 16 + React 19 + TypeScript. Deployed to Vercel.
 
 The site is the landing hub plus three "direction" pages — each a different visual interpretation of the same résumé:
